@@ -1,9 +1,9 @@
 package com.bnta.backend_project_group4.repositories;
 
-import com.bnta.backend_project_group4.models.Pet;
+import com.bnta.backend_project_group4.models.Food;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PetRepository extends JpaRepository<Pet,Long> {
+public interface FoodRepository extends JpaRepository<Food, Long> {
 }
