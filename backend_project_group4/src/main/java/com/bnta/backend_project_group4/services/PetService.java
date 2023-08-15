@@ -69,6 +69,6 @@ public class PetService {
             petBeingPlayedWith.setHappinessLevel(petBeingPlayedWith.getHappinessLevel() + toy.getHappinessValue());
             petRepository.save(petBeingPlayedWith);
             petBeingPlayedWith.getToys().remove(toyRepository.findById(toyId));
-        }
+        } //else throws exception
     }
 }
