@@ -25,14 +25,12 @@ public class Pet {
     @Column
     private int energyLevel;
 
-    @Column
     @ManyToOne
     @JoinColumn (name = "user_id")
     @JsonIgnoreProperties({"pets"})
     private User user;
 
-    @Column
-    @ManyToMany(mappedBy = "pets")
+    @ManyToMany
     @JsonIgnoreProperties({"pets"})
     @JoinTable(
             name = "pets_toys",
@@ -41,8 +39,7 @@ public class Pet {
     )
     private ArrayList<Toy> toys;
 
-    @Column
-    @ManyToMany(mappedBy = "pets")
+    @ManyToMany
     @JsonIgnoreProperties({"pets"})
     @JoinTable(
             name = "pets_foods",
