@@ -32,4 +32,9 @@ public class PetService {
         petRepository.save(pet);
         return pet;
     }
+
+    public void deletePet(Long id){
+        petRepository.deleteById(id);
+    }
+    
 }
