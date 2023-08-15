@@ -1,6 +1,7 @@
 package com.bnta.backend_project_group4.services;
 
 import com.bnta.backend_project_group4.models.*;
+import com.bnta.backend_project_group4.repositories.FoodRepository;
 import com.bnta.backend_project_group4.repositories.PetRepository;
 import com.bnta.backend_project_group4.repositories.ToyRepository;
 import com.bnta.backend_project_group4.repositories.UserRepository;
@@ -22,6 +23,9 @@ public class PetService {
 
     @Autowired
     ToyRepository toyRepository;
+
+    @Autowired
+    FoodRepository foodRepository;
 
     public List<Pet> getAllPets(){
         return petRepository.findAll();
@@ -70,5 +74,15 @@ public class PetService {
             petRepository.save(petBeingPlayedWith);
             petBeingPlayedWith.getToys().remove(toyRepository.findById(toyId));
         } //else throws exception
+    }
+
+    public void feedPet(Long foodId, Long petId){
+        Pet petBeingFed = petRepository.findById(petId).get();
+        if(petBeingFed.getFoods().contains(foodRepository.findById(foodId))){
+            Food food= foodRepository.findById(foodId).get();
+            petBeingFed.setEnergyLevel(petBeingFed.getEnergyLevel()+food.getNutritionValue());
+            petRepository.save(petBeingFed);
+            petBeingFed.getFoods().remove(foodRepository.findById(foodId));
+        }
     }
 }
