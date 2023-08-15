@@ -64,7 +64,10 @@ public class PetService {
 
         Pet petBeingPlayedWith = petRepository.findById(petId).get();
         if (petBeingPlayedWith.getToys().contains(toyRepository.findById(toyId))){
-            
+            Toy toy = toyRepository.findById(toyId).get();
+            petBeingPlayedWith.setHappinessLevel(petBeingPlayedWith.getHappinessLevel() + toy.getHappinessValue());
+            petRepository.save(petBeingPlayedWith);
+            petBeingPlayedWith.getToys().remove(toyRepository.findById(toyId));
         }
     }
 }
