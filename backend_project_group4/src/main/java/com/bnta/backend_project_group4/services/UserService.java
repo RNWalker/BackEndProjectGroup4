@@ -31,6 +31,7 @@ public class UserService {
 
     public User saveUser(UserDTO userDTO){
         User user = new User(userDTO.getName(),userDTO.getEmail());
+
         for(Long petId: userDTO.getPetIds()){
             Pet pet = petRepository.findById(petId).get();
             user.addPet(pet);
@@ -48,6 +49,7 @@ public class UserService {
         userToUpdate.setName(userDTO.getName());
         userToUpdate.setEmail(userDTO.getEmail());
         userToUpdate.setPets(new ArrayList<Pet>());
+
         for(Long petId: userDTO.getPetIds()){
             Pet pet= petRepository.findById(petId).get();
             userToUpdate.addPet(pet);
@@ -55,5 +57,4 @@ public class UserService {
         userRepository.save(userToUpdate);
         return userToUpdate;
     }
-
 }
