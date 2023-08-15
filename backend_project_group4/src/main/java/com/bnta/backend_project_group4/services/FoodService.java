@@ -8,6 +8,7 @@ import com.bnta.backend_project_group4.repositories.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +39,27 @@ public class FoodService {
         foodRepository.save(food);
         return food;
     }
+
+    public void deleteFood(Long id){
+        //BEWARE
+        foodRepository.deleteById(id);
+    }
+
+    public Food updateFood(FoodDTO foodDTO, Long id){
+        Food foodToUpdate = foodRepository.findById(id).get();
+        foodToUpdate.setName(foodDTO.getName());
+        foodToUpdate.setNutritionValue(foodDTO.getNutritionValue());
+        foodToUpdate.setPets(new ArrayList<Pet>());
+        for (Long petId: foodDTO.getPetIds()){
+            Pet pet = petRepository.findById(petId).get();
+            foodToUpdate.addPet(pet);
+        }
+
+        foodRepository.save(foodToUpdate);
+        return foodToUpdate;
+    }
+
+
 
 
 
