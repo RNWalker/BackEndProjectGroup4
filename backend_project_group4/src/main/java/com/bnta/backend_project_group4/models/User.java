@@ -1,12 +1,23 @@
 package com.bnta.backend_project_group4.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
-
+@Entity
+@Table(name = "users")
 public class User {
-
+    @Column
     private String name;
+    @Column
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
     private String email;
+    @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties({"users"})
     private ArrayList<Pet> pets;
 
     public User(String name, Long id, String email) {
