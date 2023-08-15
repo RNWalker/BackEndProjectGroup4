@@ -35,6 +35,7 @@ public class Toy {
 
     public Toy(){}
 
+
     // getters and setters
 
 
@@ -68,5 +69,9 @@ public class Toy {
 
     public void setPets(ArrayList<Pet> pets) {
         this.pets = pets;
+    }
+
+    public void addPet(Pet pet){
+        this.pets.add(pet);
     }
 }
