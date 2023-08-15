@@ -1,10 +1,8 @@
 package com.bnta.backend_project_group4.services;
 
-import com.bnta.backend_project_group4.models.Food;
-import com.bnta.backend_project_group4.models.Pet;
-import com.bnta.backend_project_group4.models.PetDTO;
-import com.bnta.backend_project_group4.models.Toy;
+import com.bnta.backend_project_group4.models.*;
 import com.bnta.backend_project_group4.repositories.PetRepository;
+import com.bnta.backend_project_group4.repositories.ToyRepository;
 import com.bnta.backend_project_group4.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +19,9 @@ public class PetService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    ToyRepository toyRepository;
 
     public List<Pet> getAllPets(){
         return petRepository.findAll();
@@ -53,5 +54,17 @@ public class PetService {
 
         petRepository.save(petToUpdate);
         return petToUpdate;
+    }
+
+    public void playWithPet(Long toyId, Long petId){
+        //petRepository findById
+        //for loop iterating through toys available for that pet
+        //happinessLevel of the pet will increase by the happinessValue of the toy
+        //delete toy
+
+        Pet petBeingPlayedWith = petRepository.findById(petId).get();
+        if (petBeingPlayedWith.getToys().contains(toyRepository.findById(toyId))){
+            
+        }
     }
 }
