@@ -57,10 +57,11 @@ public class PetService {
     }
 
     public void playWithPet(Long toyId, Long petId){
-        //petRepository findById
-        //for loop iterating through toys available for that pet
+        //created petBeingPlayedWith and findPetById
+        //if statement checking if toy is present in list of toys
         //happinessLevel of the pet will increase by the happinessValue of the toy
-        //delete toy
+        //save pet
+        // delete toy
 
         Pet petBeingPlayedWith = petRepository.findById(petId).get();
         if (petBeingPlayedWith.getToys().contains(toyRepository.findById(toyId))){
