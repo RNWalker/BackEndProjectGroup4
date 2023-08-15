@@ -47,6 +47,7 @@ public class ToyService {
 
     public Toy updateToy(ToyDTO toyDTO, Long id){
         Toy toyToUpdate = toyRepository.findById(id).get();
+
         toyToUpdate.setName(toyDTO.getName());
         toyToUpdate.setHappinessValue(toyDTO.getHappinessValue());
         toyToUpdate.setPets(new ArrayList<Pet>());

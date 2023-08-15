@@ -46,6 +46,7 @@ public class UserService {
 
     public User updateUser(UserDTO userDTO, Long id){
         User userToUpdate= userRepository.findById(id).get();
+
         userToUpdate.setName(userDTO.getName());
         userToUpdate.setEmail(userDTO.getEmail());
         userToUpdate.setPets(new ArrayList<Pet>());

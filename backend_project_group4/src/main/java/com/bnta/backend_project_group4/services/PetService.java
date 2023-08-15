@@ -43,12 +43,14 @@ public class PetService {
 
     public Pet updatePet(PetDTO petDTO, Long id){
         Pet petToUpdate = petRepository.findById(id).get();
+
         petToUpdate.setName(petDTO.getName());
         petToUpdate.setSpecies(petDTO.getSpecies());
         petToUpdate.setHappinessLevel(petDTO.getHappinessLevel());
         petToUpdate.setEnergyLevel(petDTO.getEnergyLevel());
         petToUpdate.setToys(new ArrayList<Toy>());
         petToUpdate.setFoods(new ArrayList<Food>());
+
         petRepository.save(petToUpdate);
         return petToUpdate;
     }
