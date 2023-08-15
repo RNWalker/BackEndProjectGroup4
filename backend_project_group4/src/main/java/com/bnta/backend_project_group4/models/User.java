@@ -62,4 +62,8 @@ public class User {
     public void setPets(ArrayList<Pet> pets) {
         this.pets = pets;
     }
+
+    public void addPet(Pet pet){
+        this.pets.add(pet);
+    }
 }
