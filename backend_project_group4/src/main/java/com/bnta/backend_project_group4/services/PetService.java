@@ -91,6 +91,7 @@ public class PetService {
     //public void autoDecreaseEnergyLevel(Long petId){
     //Pet petDecreasingEnergy= petRepository.findById(petId).get();
     //petDecreasingEnergy.setEnergyLevel(petBeingFed.getEnergyLevel()-2);
+    //petDecreasingEnergy.setHappinessLevel(petBeingFed.getHappinessLevel()-2);
     // petRepository.save(petDecreasingEnergy);
     //}
 
