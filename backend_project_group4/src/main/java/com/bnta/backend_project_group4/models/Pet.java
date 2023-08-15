@@ -34,11 +34,21 @@ public class Pet {
     @Column
     @ManyToMany(mappedBy = "pets")
     @JsonIgnoreProperties({"pets"})
+    @JoinTable(
+            name = "pets_toys",
+            joinColumns = @JoinColumn(name = "pet_id"),
+            inverseJoinColumns = @JoinColumn(name = "toy_id")
+    )
     private ArrayList<Toy> toys;
 
     @Column
     @ManyToMany(mappedBy = "pets")
     @JsonIgnoreProperties({"pets"})
+    @JoinTable(
+            name = "pets_foods",
+            joinColumns = @JoinColumn(name = "pet_id"),
+            inverseJoinColumns = @JoinColumn(name = "food_id")
+    )
     private ArrayList<Food> foods;
 
     public Pet(Long id, String name, Species species, int happinessLevel, int energyLevel, User user) {
