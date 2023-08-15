@@ -6,6 +6,7 @@ import com.bnta.backend_project_group4.repositories.PetRepository;
 import com.bnta.backend_project_group4.repositories.ToyRepository;
 import com.bnta.backend_project_group4.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -83,6 +84,14 @@ public class PetService {
             petBeingFed.setEnergyLevel(petBeingFed.getEnergyLevel()+food.getNutritionValue());
             petRepository.save(petBeingFed);
             petBeingFed.getFoods().remove(foodRepository.findById(foodId));
-        }
+        }//else throws exception
     }
+
+    //@Scheduled(fixedRate = 10000) note: 10000 = 10 seconds
+    //public void autoDecreaseEnergyLevel(Long petId){
+    //Pet petDecreasingEnergy= petRepository.findById(petId).get();
+    //petDecreasingEnergy.setEnergyLevel(petBeingFed.getEnergyLevel()-2);
+    // petRepository.save(petDecreasingEnergy);
+    //}
+
 }
