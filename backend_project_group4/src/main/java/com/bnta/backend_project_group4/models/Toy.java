@@ -25,8 +25,7 @@ public class Toy {
     @JsonIgnoreProperties({"toys"})
     private ArrayList<Pet> pets;
 
-    public Toy(Long id, String name, int happinessValue) {
-        this.id = id;
+    public Toy(String name, int happinessValue) {
         this.name = name;
         this.happinessValue = happinessValue;
         this.pets = new ArrayList<>();

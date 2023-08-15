@@ -20,9 +20,8 @@ public class User {
     @JsonIgnoreProperties({"users"})
     private ArrayList<Pet> pets;
 
-    public User(String name, Long id, String email) {
+    public User(String name, String email) {
         this.name = name;
-        this.id = id;
         this.email = email;
         this.pets = new ArrayList<>();
     }

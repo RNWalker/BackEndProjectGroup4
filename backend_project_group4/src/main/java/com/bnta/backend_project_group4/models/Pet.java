@@ -48,8 +48,7 @@ public class Pet {
     )
     private ArrayList<Food> foods;
 
-    public Pet(Long id, String name, Species species, int happinessLevel, int energyLevel, User user) {
-        this.id = id;
+    public Pet(String name, Species species, int happinessLevel, int energyLevel, User user) {
         this.name = name;
         this.species = species;
         this.happinessLevel = happinessLevel;
