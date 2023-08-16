@@ -2,6 +2,7 @@ package com.bnta.backend_project_group4.components;
 
 import com.bnta.backend_project_group4.models.Pet;
 import com.bnta.backend_project_group4.models.Species;
+import com.bnta.backend_project_group4.models.Toy;
 import com.bnta.backend_project_group4.models.User;
 import com.bnta.backend_project_group4.repositories.FoodRepository;
 import com.bnta.backend_project_group4.repositories.PetRepository;
@@ -81,6 +82,33 @@ public class DataLoader implements ApplicationRunner {
         Pet pet8 = new Pet("Giggles", Species.CAT, user5);
         user5.addPet(pet8);
         petRepository.save(pet8);
+
+        //toys
+
+        Toy toy1 = new Toy("Humans", 20);
+        toy1.addPet(pet1); //dragon
+        toy1.addPet(pet2); //dragon
+        toy1.addPet(pet5); //dog
+        toy1.addPet(pet6); //dog
+        toyRepository.save(toy1);
+
+        Toy toy2 = new Toy("Ball", 20);
+        toy2.addPet(pet2); //dog
+        toy2.addPet(pet6); //dog
+        toyRepository.save(toy2);
+
+        Toy toy3 = new Toy("Stick", 20);
+        toy3.addPet(pet2); //dog
+        toy3.addPet(pet3); //rat
+        toy3.addPet(pet6); //dog
+        toy3.addPet(pet7); //rat
+        toyRepository.save(toy3);
+
+        Toy toy4 = new Toy("Yarn", 20);
+        toy4.addPet(pet4); //cat
+        toy4.addPet(pet8); //cat
+        toyRepository.save(toy4);
+
         
 
     }
