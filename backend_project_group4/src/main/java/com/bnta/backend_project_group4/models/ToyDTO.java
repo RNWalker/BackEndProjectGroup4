@@ -8,7 +8,7 @@ public class ToyDTO {
     private int happinessValue;
     private List<Long> petIds;
 
-    public ToyDTO(String name, int happinessValue, List<Long> petIds) {
+    public ToyDTO(String name, int happinessValue) {
         this.name = name;
         this.happinessValue = happinessValue;
         this.petIds = petIds;

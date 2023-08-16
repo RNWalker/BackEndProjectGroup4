@@ -33,10 +33,10 @@ public class ToyService {
     public Toy saveToy(ToyDTO toyDTO){
         Toy toy = new Toy(toyDTO.getName(),toyDTO.getHappinessValue());
 
-        for (Long petId : toyDTO.getPetIds() ) {
-            Pet pet = petRepository.findById(petId).get();
-            toy.addPet(pet);
-        }
+//        for (Long petId : toyDTO.getPetIds() ) {
+//            Pet pet = petRepository.findById(petId).get();
+//            toy.addPet(pet);
+//        }
         return toyRepository.save(toy);
     }
 
@@ -50,12 +50,12 @@ public class ToyService {
 
         toyToUpdate.setName(toyDTO.getName());
         toyToUpdate.setHappinessValue(toyDTO.getHappinessValue());
-        toyToUpdate.setPets(new ArrayList<Pet>());
+//        toyToUpdate.setPets(new ArrayList<Pet>());
 
-        for (Long petId: toyDTO.getPetIds()){
-            Pet pet = petRepository.findById(petId).get();
-            toyToUpdate.addPet(pet);
-        }
+//        for (Long petId: toyDTO.getPetIds()){
+//            Pet pet = petRepository.findById(petId).get();
+//            toyToUpdate.addPet(pet);
+//        }
         toyRepository.save(toyToUpdate);
         return toyToUpdate;
     }

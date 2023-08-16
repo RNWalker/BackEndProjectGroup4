@@ -37,7 +37,7 @@ public class UserController {
 
     //CREATE
     @PostMapping
-    public ResponseEntity<List<User>> createChocolate(@RequestBody UserDTO userDTO){
+    public ResponseEntity<List<User>> createUser(@RequestBody UserDTO userDTO){
         userService.saveUser(userDTO);
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.CREATED);
     }
