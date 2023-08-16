@@ -12,11 +12,11 @@ public class PetDTO {
     private List<Long> toyIds;
     private List<Long> foodIds;
 
-    public PetDTO(String name, Species species, int happinessLevel, int energyLevel, Long userId, List<Long> toyIds, List<Long> foodIds) {
+    public PetDTO(String name, Species species,  Long userId, List<Long> toyIds, List<Long> foodIds) {
         this.name = name;
         this.species = species;
-        this.happinessLevel = happinessLevel;
-        this.energyLevel = energyLevel;
+        this.happinessLevel = 50;
+        this.energyLevel = 50;
         this.userId = userId;
         this.toyIds = toyIds;
         this.foodIds = foodIds;

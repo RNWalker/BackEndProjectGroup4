@@ -1,5 +1,7 @@
 package com.bnta.backend_project_group4.components;
 
+import com.bnta.backend_project_group4.models.Pet;
+import com.bnta.backend_project_group4.models.Species;
 import com.bnta.backend_project_group4.models.User;
 import com.bnta.backend_project_group4.repositories.FoodRepository;
 import com.bnta.backend_project_group4.repositories.PetRepository;
@@ -43,9 +45,13 @@ public class DataLoader implements ApplicationRunner {
 
         User user4 = new User("MotherOfCats", "charlotte@MotherOfCats");
         userRepository.save(user4);
-        
+
         User user5 = new User("MotherOfAll","zaiyad@MotherOfAll");
         userRepository.save(user5);
+
+        // pets
+
+        Pet pet1 = new Pet("Khaleesi", Species.DRAGON,50,15,)
     }
 
 }

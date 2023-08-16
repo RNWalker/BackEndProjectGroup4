@@ -48,11 +48,11 @@ public class Pet {
     )
     private ArrayList<Food> foods;
 
-    public Pet(String name, Species species, int happinessLevel, int energyLevel, User user) {
+    public Pet(String name, Species species, User user) {
         this.name = name;
         this.species = species;
-        this.happinessLevel = happinessLevel;
-        this.energyLevel = energyLevel;
+        this.happinessLevel = 50;
+        this.energyLevel = 50;
         this.user = user;
         this.toys = new ArrayList<>();
         this.foods = new ArrayList<>();
