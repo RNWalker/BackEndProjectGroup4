@@ -31,11 +31,6 @@ public class UserService {
 
     public User saveUser(UserDTO userDTO){
         User user = new User(userDTO.getName(),userDTO.getEmail());
-
-//        for(Long petId: userDTO.getPetIds()){
-//            Pet pet = petRepository.findById(petId).get();
-//            user.addPet(pet);
-//        }
         return userRepository.save(user);
     }
 
