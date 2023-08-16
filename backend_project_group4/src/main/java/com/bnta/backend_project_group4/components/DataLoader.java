@@ -83,63 +83,71 @@ public class DataLoader implements ApplicationRunner {
         //toys
 
         Toy toy1 = new Toy("Humans", 20);
-        toy1.addPet(pet1); //dragon
-        toy1.addPet(pet2); //dragon
-        toy1.addPet(pet5); //dog
-        toy1.addPet(pet6); //dog
+        pet1.addToy(toy1);
+        pet2.addToy(toy1);
+        pet5.addToy(toy1);
+        pet6.addToy(toy1);
         toyRepository.save(toy1);
 
         Toy toy2 = new Toy("Ball", 20);
-        toy2.addPet(pet2); //dog
-        toy2.addPet(pet6); //dog
+        pet2.addToy(toy2);
+        pet6.addToy(toy2);
         toyRepository.save(toy2);
 
         Toy toy3 = new Toy("Stick", 20);
-        toy3.addPet(pet2); //dog
-        toy3.addPet(pet3); //rat
-        toy3.addPet(pet6); //dog
-        toy3.addPet(pet7); //rat
+        pet2.addToy(toy3);
+        pet3.addToy(toy3);
+        pet6.addToy(toy3);
+        pet7.addToy(toy3);
         toyRepository.save(toy3);
 
         Toy toy4 = new Toy("Yarn", 20);
-        toy4.addPet(pet4); //cat
-        toy4.addPet(pet8); //cat
+        pet4.addToy(toy4);
+        pet8.addToy(toy4);
         toyRepository.save(toy4);
 
         // food
 
         Food food1 = new Food("Raw meat", 20);
-        food1.addPet(pet1); // dragon
-        food1.addPet(pet5); // dragon
-        food1.addPet(pet2); // dog
-        food1.addPet(pet6); // dog
-        food1.addPet(pet4); // cat
-        food1.addPet(pet8); // cat
+        pet1.addFood(food1);
+        pet5.addFood(food1);
+        pet2.addFood(food1);
+        pet6.addFood(food1);
+        pet4.addFood(food1);
+        pet8.addFood(food1);
         foodRepository.save(food1);
 
         Food food2 = new Food("Kibble", 20);
-        food2.addPet(pet2); // dog
-        food2.addPet(pet6); // dog
-        food2.addPet(pet3); // rat
-        food2.addPet(pet7); // rat
-        food2.addPet(pet4); // cat
-        food2.addPet(pet8); // cat
+        pet2.addFood(food2);
+        pet6.addFood(food2);
+        pet3.addFood(food2);
+        pet7.addFood(food2);
+        pet4.addFood(food2);
+        pet8.addFood(food2);
         foodRepository.save(food2);
 
         Food food3 = new Food("Kipper", 20);
-        food3.addPet(pet4); // cat
-        food3.addPet(pet8); // cat
-        food3.addPet(pet2); // dog
-        food3.addPet(pet6); // dog
-        food3.addPet(pet3); // rat
-        food3.addPet(pet7); // rat
+        pet4.addFood(food3);
+        pet8.addFood(food3);
+        pet2.addFood(food3);
+        pet6.addFood(food3);
+        pet3.addFood(food3);
+        pet7.addFood(food3);
         foodRepository.save(food3);
 
         Food food4 = new Food("Human Leg", 20);
-        food4.addPet(pet1); // dragon
-        food4.addPet(pet5); // dragon
+        pet1.addFood(food4);
+        pet5.addFood(food4);
         foodRepository.save(food4);
 
+        petRepository.save(pet1);
+        petRepository.save(pet2);
+        petRepository.save(pet3);
+        petRepository.save(pet4);
+        petRepository.save(pet5);
+        petRepository.save(pet6);
+        petRepository.save(pet7);
+        petRepository.save(pet8);
     }
 
 }
