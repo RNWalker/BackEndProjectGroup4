@@ -41,4 +41,15 @@ public class UserController {
         userService.saveUser(userDTO);
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.CREATED);
     }
+
+    //DELETE
+    @DeleteMapping(value="/{id}")
+    public ResponseEntity<List<User>> deleteUser(@PathVariable Long id){
+        Optional<User> foundUser = userService.getUserById(id);
+        if(foundUser.isPresent()){
+            userService.deleteUser(id);
+            return new ResponseEntity<>(userService.getAllUsers(),HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 }
