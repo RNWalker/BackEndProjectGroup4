@@ -1,8 +1,6 @@
 package com.bnta.backend_project_group4.services;
 
-import com.bnta.backend_project_group4.models.Pet;
-import com.bnta.backend_project_group4.models.User;
-import com.bnta.backend_project_group4.models.UserDTO;
+import com.bnta.backend_project_group4.models.*;
 import com.bnta.backend_project_group4.repositories.PetRepository;
 import com.bnta.backend_project_group4.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +37,12 @@ public class UserService {
         User deletedUser= userRepository.findById(id).get();
         List<Pet> petsToBeDeleted= deletedUser.getPets();
         for(Pet pet :petsToBeDeleted){
-            
+            for(Toy toy: pet.getToys()) {
+                pet.removeToy(toy);
+            }
+            for(Food food:pet.getFoods()){
+                pet.removeFood(food);
+            }
             deletedUser.removePet(pet);
         }
         userRepository.deleteById(id);
