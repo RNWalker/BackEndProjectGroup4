@@ -55,6 +55,14 @@ public class ToyController {
         return new ResponseEntity<>(toyService.getAllToys(),HttpStatus.NOT_FOUND);
     }
 
+    // UPDATE
+    @PatchMapping(value ="/{id}")
+    public ResponseEntity<Toy> updateToy(@RequestBody ToyDTO toyDTO, @PathVariable Long id){
+        Toy updatedToy = toyService.updateToy(toyDTO, id);
+        return new ResponseEntity<>(updatedToy, HttpStatus.OK);
+    }
+
+
 
 
 }
