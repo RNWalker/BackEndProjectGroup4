@@ -126,4 +126,8 @@ public class Pet {
     public void setFoods(ArrayList<Food> foods) {
         this.foods = foods;
     }
+
+    public void addFood(Food food) {
+        this.foods.add(food);
+    }
 }

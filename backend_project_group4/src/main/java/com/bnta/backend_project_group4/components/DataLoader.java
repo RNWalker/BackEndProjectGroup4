@@ -138,7 +138,8 @@ public class DataLoader implements ApplicationRunner {
         Food food4 = new Food("Human Leg", 20);
         food4.addPet(pet1); // dragon
         food4.addPet(pet5); // dragon
-        
+        foodRepository.save(food4);
+
     }
 
 }
