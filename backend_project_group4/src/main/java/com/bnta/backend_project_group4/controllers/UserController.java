@@ -1,15 +1,13 @@
 package com.bnta.backend_project_group4.controllers;
 
 import com.bnta.backend_project_group4.models.User;
+import com.bnta.backend_project_group4.models.UserDTO;
 import com.bnta.backend_project_group4.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.swing.text.html.Option;
 import java.util.List;
@@ -35,5 +33,12 @@ public class UserController {
             return new ResponseEntity<>(foundUser.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    //CREATE
+    @PostMapping
+    public ResponseEntity<List<User>> createChocolate(@RequestBody UserDTO userDTO){
+        userService.saveUser(userDTO);
+        return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.CREATED);
     }
 }
