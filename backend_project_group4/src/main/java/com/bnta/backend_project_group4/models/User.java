@@ -60,7 +60,7 @@ public class User {
         return pets;
     }
 
-    public void setPets(ArrayList<Pet> pets) {
+    public void setPets(List<Pet> pets) {
         this.pets = pets;
     }
 

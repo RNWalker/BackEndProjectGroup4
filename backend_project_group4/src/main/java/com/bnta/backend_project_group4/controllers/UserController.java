@@ -50,6 +50,6 @@ public class UserController {
             userService.deleteUser(id);
             return new ResponseEntity<>(userService.getAllUsers(),HttpStatus.OK);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(userService.getAllUsers(),HttpStatus.NOT_FOUND);
     }
 }
