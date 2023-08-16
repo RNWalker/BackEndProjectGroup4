@@ -54,12 +54,7 @@ public class UserService {
 
         userToUpdate.setName(userDTO.getName());
         userToUpdate.setEmail(userDTO.getEmail());
-//        userToUpdate.setPets(new ArrayList<Pet>());
-//
-//        for(Long petId: userDTO.getPetIds()){
-//            Pet pet= petRepository.findById(petId).get();
-//            userToUpdate.addPet(pet);
-//        }
+
         userRepository.save(userToUpdate);
         return userToUpdate;
     }
