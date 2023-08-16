@@ -36,6 +36,12 @@ public class UserService {
 
     public void deleteUser(Long id){
         // ? delete food from pet, toy from pet. then pet from user
+        User deletedUser= userRepository.findById(id).get();
+        List<Pet> petsToBeDeleted= deletedUser.getPets();
+        for(Pet pet :petsToBeDeleted){
+            
+            deletedUser.removePet(pet);
+        }
         userRepository.deleteById(id);
     }
 

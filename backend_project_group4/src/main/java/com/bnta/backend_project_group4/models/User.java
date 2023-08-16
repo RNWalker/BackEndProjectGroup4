@@ -67,4 +67,6 @@ public class User {
     public void addPet(Pet pet){
         this.pets.add(pet);
     }
+
+    public void removePet(Pet pet){this.pets.remove(pet);}
 }

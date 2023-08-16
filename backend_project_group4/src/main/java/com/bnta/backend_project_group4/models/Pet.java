@@ -134,4 +134,12 @@ public class Pet {
     public void addToy(Toy toy) {
         this.toys.add(toy);
     }
+
+    public void removeToy(Toy toy){
+        this.toys.remove(toy);
+    }
+
+    public void removeFood(Food food){
+        this.foods.remove(food);
+    }
 }
