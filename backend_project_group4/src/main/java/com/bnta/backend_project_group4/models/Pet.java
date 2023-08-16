@@ -130,4 +130,8 @@ public class Pet {
     public void addFood(Food food) {
         this.foods.add(food);
     }
+
+    public void addToy(Toy toy) {
+        this.toys.add(toy);
+    }
 }
