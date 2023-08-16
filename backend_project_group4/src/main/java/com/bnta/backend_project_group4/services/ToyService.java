@@ -42,6 +42,10 @@ public class ToyService {
 
     // May need to amend later to also delete pet
     public void deleteToy(Long id){
+        Toy toyToDelete = toyRepository.findById(id).get();
+        for(Pet pet : toyToDelete.getPets()){
+            pet.removeToy(toyToDelete);
+        }
         toyRepository.deleteById(id);
     }
 

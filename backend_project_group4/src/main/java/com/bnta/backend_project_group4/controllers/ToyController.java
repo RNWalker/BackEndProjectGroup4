@@ -44,6 +44,17 @@ public class ToyController {
         return new ResponseEntity<>(toyService.getAllToys(), HttpStatus.CREATED);
     }
 
+    //DELETE
+    @DeleteMapping(value="/{id}")
+    public ResponseEntity<List<Toy>> deleteToy(@PathVariable Long id){
+        Optional<Toy> foundToy = toyService.getToyById(id);
+        if(foundToy.isPresent()){
+            toyService.deleteToy(id);
+            return new ResponseEntity<>(toyService.getAllToys(),HttpStatus.OK);
+        }
+        return new ResponseEntity<>(toyService.getAllToys(),HttpStatus.NOT_FOUND);
+    }
+
 
 
 }
