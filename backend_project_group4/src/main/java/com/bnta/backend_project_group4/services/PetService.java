@@ -38,7 +38,7 @@ public class PetService {
 
     // check later re passing in toys/food
     public Pet savePet(PetDTO petDTO, Long userId){
-        Pet pet = new Pet(petDTO.getName(), petDTO.getSpecies(), petDTO.getHappinessLevel(), petDTO.getEnergyLevel(), userRepository.findById(userId).get());
+        Pet pet = new Pet(petDTO.getName(), petDTO.getSpecies(), userRepository.findById(userId).get());
         petRepository.save(pet);
         return pet;
     }

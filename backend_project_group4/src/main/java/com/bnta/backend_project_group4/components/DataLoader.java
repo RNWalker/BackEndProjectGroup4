@@ -28,8 +28,7 @@ public class DataLoader implements ApplicationRunner {
     UserRepository userRepository;
 
     // DEFAULT CONSTRUCTOR
-    public DataLoader() {
-    }
+    public DataLoader() {}
 
     @Override
     public void run(ApplicationArguments args) throws Exception{
@@ -52,27 +51,35 @@ public class DataLoader implements ApplicationRunner {
         // pets
 
         Pet pet1 = new Pet("Khaleesi", Species.DRAGON, user1);
+        user1.addPet(pet1);
         petRepository.save(pet1);
 
         Pet pet2 = new Pet("Dougal", Species.DOG, user2);
+        user2.addPet(pet2);
         petRepository.save(pet2);
 
         Pet pet3 = new Pet("Sesame", Species.RAT, user3);
+        user3.addPet(pet3);
         petRepository.save(pet3);
 
         Pet pet4 = new Pet("Tiddles", Species.CAT, user4);
+        user4.addPet(pet4);
         petRepository.save(pet4);
 
         Pet pet5 = new Pet("Drogon", Species.DRAGON, user5);
+        user5.addPet(pet5);
         petRepository.save(pet5);
 
         Pet pet6 = new Pet("Derek", Species.DOG, user5);
+        user5.addPet(pet6);
         petRepository.save(pet6);
 
         Pet pet7 = new Pet("Peach", Species.RAT, user5);
+        user5.addPet(pet7);
         petRepository.save(pet7);
 
         Pet pet8 = new Pet("Giggles", Species.CAT, user5);
+        user5.addPet(pet8);
         petRepository.save(pet8);
         
 

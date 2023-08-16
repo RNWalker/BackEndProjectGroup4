@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "pets")
@@ -37,7 +38,7 @@ public class Pet {
             joinColumns = @JoinColumn(name = "pet_id"),
             inverseJoinColumns = @JoinColumn(name = "toy_id")
     )
-    private ArrayList<Toy> toys;
+    private List<Toy> toys;
 
     @ManyToMany
     @JsonIgnoreProperties({"pets"})
@@ -46,7 +47,7 @@ public class Pet {
             joinColumns = @JoinColumn(name = "pet_id"),
             inverseJoinColumns = @JoinColumn(name = "food_id")
     )
-    private ArrayList<Food> foods;
+    private List<Food> foods;
 
     public Pet(String name, Species species, User user) {
         this.name = name;
@@ -110,7 +111,7 @@ public class Pet {
         this.user = user;
     }
 
-    public ArrayList<Toy> getToys() {
+    public List<Toy> getToys() {
         return toys;
     }
 
@@ -118,7 +119,7 @@ public class Pet {
         this.toys = toys;
     }
 
-    public ArrayList<Food> getFoods() {
+    public List<Food> getFoods() {
         return foods;
     }
 

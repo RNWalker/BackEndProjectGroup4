@@ -4,11 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 public class User {
     @Column
     private String name;
+
     @Column
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,9 +19,10 @@ public class User {
 
     @Column
     private String email;
+
     @OneToMany(mappedBy = "user")
     @JsonIgnoreProperties({"users"})
-    private ArrayList<Pet> pets;
+    private List<Pet> pets;
 
     public User(String name, String email) {
         this.name = name;
@@ -52,7 +56,7 @@ public class User {
         this.email = email;
     }
 
-    public ArrayList<Pet> getPets() {
+    public List<Pet> getPets() {
         return pets;
     }
 
