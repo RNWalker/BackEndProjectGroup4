@@ -1,9 +1,6 @@
 package com.bnta.backend_project_group4.components;
 
-import com.bnta.backend_project_group4.models.Pet;
-import com.bnta.backend_project_group4.models.Species;
-import com.bnta.backend_project_group4.models.Toy;
-import com.bnta.backend_project_group4.models.User;
+import com.bnta.backend_project_group4.models.*;
 import com.bnta.backend_project_group4.repositories.FoodRepository;
 import com.bnta.backend_project_group4.repositories.PetRepository;
 import com.bnta.backend_project_group4.repositories.ToyRepository;
@@ -109,8 +106,39 @@ public class DataLoader implements ApplicationRunner {
         toy4.addPet(pet8); //cat
         toyRepository.save(toy4);
 
-        
+        // food
 
+        Food food1 = new Food("Raw meat", 20);
+        food1.addPet(pet1); // dragon
+        food1.addPet(pet5); // dragon
+        food1.addPet(pet2); // dog
+        food1.addPet(pet6); // dog
+        food1.addPet(pet4); // cat
+        food1.addPet(pet8); // cat
+        foodRepository.save(food1);
+
+        Food food2 = new Food("Kibble", 20);
+        food2.addPet(pet2); // dog
+        food2.addPet(pet6); // dog
+        food2.addPet(pet3); // rat
+        food2.addPet(pet7); // rat
+        food2.addPet(pet4); // cat
+        food2.addPet(pet8); // cat
+        foodRepository.save(food2);
+
+        Food food3 = new Food("Kipper", 20);
+        food3.addPet(pet4); // cat
+        food3.addPet(pet8); // cat
+        food3.addPet(pet2); // dog
+        food3.addPet(pet6); // dog
+        food3.addPet(pet3); // rat
+        food3.addPet(pet7); // rat
+        foodRepository.save(food3);
+
+        Food food4 = new Food("Human Leg", 20);
+        food4.addPet(pet1); // dragon
+        food4.addPet(pet5); // dragon
+        
     }
 
 }
