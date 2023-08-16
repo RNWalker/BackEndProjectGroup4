@@ -46,18 +46,7 @@ public class UserService {
 
             userRepository.delete(user);
         }
-//        List<Pet> petsToBeDeleted= deletedUser.getPets();
-//        for(Pet pet :petsToBeDeleted){
-//            for(Toy toy: pet.getToys()) {
-//                pet.removeToy(toy);
-//            }
-//            for(Food food:pet.getFoods()){
-//                pet.removeFood(food);
-//            }
-//            deletedUser.removePet(pet);
-//            petRepository.deleteById(pet.getId());
-//        }
-//        userRepository.deleteById(id);
+
     }
 
     public User updateUser(UserDTO userDTO, Long id){
@@ -65,12 +54,12 @@ public class UserService {
 
         userToUpdate.setName(userDTO.getName());
         userToUpdate.setEmail(userDTO.getEmail());
-        userToUpdate.setPets(new ArrayList<Pet>());
-
-        for(Long petId: userDTO.getPetIds()){
-            Pet pet= petRepository.findById(petId).get();
-            userToUpdate.addPet(pet);
-        }
+//        userToUpdate.setPets(new ArrayList<Pet>());
+//
+//        for(Long petId: userDTO.getPetIds()){
+//            Pet pet= petRepository.findById(petId).get();
+//            userToUpdate.addPet(pet);
+//        }
         userRepository.save(userToUpdate);
         return userToUpdate;
     }

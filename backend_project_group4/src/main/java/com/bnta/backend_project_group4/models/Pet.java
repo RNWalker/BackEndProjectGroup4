@@ -143,10 +143,5 @@ public class Pet {
         this.foods.remove(food);
     }
 
-    public void removeUser(){
-        if(user!= null){
-            user.getPets().remove(this);
-            user = null;
-        }
-    }
+
 }
