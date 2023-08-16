@@ -20,7 +20,7 @@ public class User {
     @Column
     private String email;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JsonIgnoreProperties({"users"})
     private List<Pet> pets;
 

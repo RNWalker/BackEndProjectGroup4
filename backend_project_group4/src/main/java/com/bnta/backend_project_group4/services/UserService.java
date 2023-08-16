@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,19 +35,29 @@ public class UserService {
 
     public void deleteUser(Long id){
         // ? delete food from pet, toy from pet. then pet from user
-        User deletedUser= userRepository.getById(id);
-        List<Pet> petsToBeDeleted= deletedUser.getPets();
-        for(Pet pet :petsToBeDeleted){
-            for(Toy toy: pet.getToys()) {
-                pet.removeToy(toy);
+        Optional<User> deletedUser = userRepository.findById(id);
+        if(deletedUser.isPresent()){
+            User user = deletedUser.get();
+            Iterator<Pet> petIterator = user.getPets().iterator();
+            while (petIterator.hasNext()){
+                Pet pet = petIterator.next();
+                petIterator.remove();
             }
-            for(Food food:pet.getFoods()){
-                pet.removeFood(food);
-            }
-            deletedUser.removePet(pet);
-            petRepository.deleteById(pet.getId());
+
+            userRepository.delete(user);
         }
-        userRepository.deleteById(id);
+//        List<Pet> petsToBeDeleted= deletedUser.getPets();
+//        for(Pet pet :petsToBeDeleted){
+//            for(Toy toy: pet.getToys()) {
+//                pet.removeToy(toy);
+//            }
+//            for(Food food:pet.getFoods()){
+//                pet.removeFood(food);
+//            }
+//            deletedUser.removePet(pet);
+//            petRepository.deleteById(pet.getId());
+//        }
+//        userRepository.deleteById(id);
     }
 
     public User updateUser(UserDTO userDTO, Long id){
