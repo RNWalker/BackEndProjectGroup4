@@ -8,7 +8,7 @@ public class UserDTO {
     private String email;
     private List<Long> petIds;
 
-    public UserDTO(String name, String email, List<Long> petIds) {
+    public UserDTO(String name, String email) {
         this.name = name;
         this.email = email;
         this.petIds = petIds;
