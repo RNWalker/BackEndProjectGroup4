@@ -1,9 +1,6 @@
 package com.bnta.backend_project_group4.controllers;
 
-import com.bnta.backend_project_group4.models.Pet;
-import com.bnta.backend_project_group4.models.PetDTO;
-import com.bnta.backend_project_group4.models.Toy;
-import com.bnta.backend_project_group4.models.ToyDTO;
+import com.bnta.backend_project_group4.models.*;
 import com.bnta.backend_project_group4.services.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -57,9 +54,9 @@ public class PetController {
 
     // UPDATE
     @PatchMapping(value ="/{id}")
-    public ResponseEntity<Toy> updateToy(@RequestBody ToyDTO toyDTO, @PathVariable Long id){
-        Toy updatedToy = toyService.updateToy(toyDTO, id);
-        return new ResponseEntity<>(updatedToy, HttpStatus.OK);
+    public ResponseEntity<Pet> updatePet(@RequestBody PetDTO petDTO, @PathVariable Long id){
+        Pet updatedPet = petService.updatePet(petDTO, id);
+        return new ResponseEntity<>(updatedPet, HttpStatus.OK);
     }
 
 

@@ -47,16 +47,20 @@ public class PetService {
         petRepository.deleteById(id);
     }
 
-    public Pet updatePet(PetDTO petDTO, Long id){
-        Pet petToUpdate = petRepository.findById(id).get();
+    public Pet updatePet(PetDTO petDTO, Long petId){
+        Pet petToUpdate = petRepository.findById(petId).get();
 
         petToUpdate.setName(petDTO.getName());
         petToUpdate.setSpecies(petDTO.getSpecies());
         petToUpdate.setHappinessLevel(petDTO.getHappinessLevel());
         petToUpdate.setEnergyLevel(petDTO.getEnergyLevel());
-        petToUpdate.setToys(new ArrayList<Toy>());
-        petToUpdate.setFoods(new ArrayList<Food>());
-
+        petToUpdate.setId(petDTO.getUserId());
+        petToUpdate.setFoods(new ArrayList<>());
+        //        for (Long petId: toyDTO.getPetIds()){
+//            Pet pet = petRepository.findById(petId).get();
+//            toyToUpdate.addPet(pet);
+//        }
+        petToUpdate.setToys(new ArrayList<>());
         petRepository.save(petToUpdate);
         return petToUpdate;
     }
