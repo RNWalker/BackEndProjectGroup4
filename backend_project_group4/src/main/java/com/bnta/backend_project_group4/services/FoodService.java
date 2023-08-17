@@ -3,6 +3,7 @@ package com.bnta.backend_project_group4.services;
 import com.bnta.backend_project_group4.models.Food;
 import com.bnta.backend_project_group4.models.FoodDTO;
 import com.bnta.backend_project_group4.models.Pet;
+import com.bnta.backend_project_group4.models.Toy;
 import com.bnta.backend_project_group4.repositories.FoodRepository;
 import com.bnta.backend_project_group4.repositories.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +37,11 @@ public class FoodService {
     }
 
     public void deleteFood(Long id){
-        //BEWARE
+        Food foodToDelete = foodRepository.findById(id).get();
+        for(Pet pet : foodToDelete.getPets()){
+            pet.removeFood(foodToDelete);
+            petRepository.save(pet);
+        }
         foodRepository.deleteById(id);
     }
 

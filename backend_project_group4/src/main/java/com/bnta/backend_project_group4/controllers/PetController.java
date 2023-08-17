@@ -45,22 +45,22 @@ public class PetController {
     }
 
     //DELETE
-//    @DeleteMapping(value="/{id}")
-//    public ResponseEntity<List<Toy>> deleteToy(@PathVariable Long id){
-//        Optional<Toy> foundToy = toyService.getToyById(id);
-//        if(foundToy.isPresent()){
-//            toyService.deleteToy(id);
-//            return new ResponseEntity<>(toyService.getAllToys(),HttpStatus.OK);
-//        }
-//        return new ResponseEntity<>(toyService.getAllToys(),HttpStatus.NOT_FOUND);
-//    }
-//
-//    // UPDATE
-//    @PatchMapping(value ="/{id}")
-//    public ResponseEntity<Toy> updateToy(@RequestBody ToyDTO toyDTO, @PathVariable Long id){
-//        Toy updatedToy = toyService.updateToy(toyDTO, id);
-//        return new ResponseEntity<>(updatedToy, HttpStatus.OK);
-//    }
+    @DeleteMapping(value="/{id}")
+    public ResponseEntity<List<Pet>> deletePet(@PathVariable Long id){
+        Optional<Pet> foundPet = petService.getPetById(id);
+        if(foundPet.isPresent()){
+            petService.deletePet(id);
+            return new ResponseEntity<>(petService.getAllPets(),HttpStatus.OK);
+        }
+        return new ResponseEntity<>(petService.getAllPets(),HttpStatus.NOT_FOUND);
+    }
+
+    // UPDATE
+    @PatchMapping(value ="/{id}")
+    public ResponseEntity<Toy> updateToy(@RequestBody ToyDTO toyDTO, @PathVariable Long id){
+        Toy updatedToy = toyService.updateToy(toyDTO, id);
+        return new ResponseEntity<>(updatedToy, HttpStatus.OK);
+    }
 
 
 }

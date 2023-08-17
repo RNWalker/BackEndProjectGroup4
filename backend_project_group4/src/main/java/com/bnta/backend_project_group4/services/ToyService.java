@@ -45,6 +45,7 @@ public class ToyService {
         Toy toyToDelete = toyRepository.findById(id).get();
         for(Pet pet : toyToDelete.getPets()){
             pet.removeToy(toyToDelete);
+            petRepository.save(pet);
         }
         toyRepository.deleteById(id);
     }
