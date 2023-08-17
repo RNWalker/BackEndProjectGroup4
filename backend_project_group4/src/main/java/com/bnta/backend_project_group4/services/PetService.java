@@ -56,11 +56,21 @@ public class PetService {
         petToUpdate.setEnergyLevel(petDTO.getEnergyLevel());
         petToUpdate.setId(petDTO.getUserId());
         petToUpdate.setFoods(new ArrayList<>());
-        //        for (Long petId: toyDTO.getPetIds()){
-//            Pet pet = petRepository.findById(petId).get();
-//            toyToUpdate.addPet(pet);
-//        }
+
+        for (Long id: petDTO.getFoodIds()){
+            Food food = foodRepository.findById(id).get();
+            petToUpdate.addFood(food);
+            foodRepository.save(food);
+        }
+
         petToUpdate.setToys(new ArrayList<>());
+
+        for (Long id: petDTO.getToyIds()){
+            Toy toy = toyRepository.findById(id).get();
+            petToUpdate.addToy(toy);
+            toyRepository.save(toy);
+        }
+
         petRepository.save(petToUpdate);
         return petToUpdate;
     }
