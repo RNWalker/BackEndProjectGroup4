@@ -2,8 +2,6 @@ package com.bnta.backend_project_group4.controllers;
 
 import com.bnta.backend_project_group4.models.Food;
 import com.bnta.backend_project_group4.models.FoodDTO;
-import com.bnta.backend_project_group4.models.Toy;
-import com.bnta.backend_project_group4.models.ToyDTO;
 import com.bnta.backend_project_group4.services.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,6 +28,7 @@ public class FoodController {
     @GetMapping(value= "/{id}")
     public ResponseEntity<Food> getFoodById(@PathVariable Long id){
         Optional<Food> foundFood = foodService.getFoodById(id);
+
         if(foundFood.isPresent()){
             return new ResponseEntity<>(foundFood.get(), HttpStatus.OK);
         }
@@ -47,6 +46,7 @@ public class FoodController {
     @DeleteMapping(value="/{id}")
     public ResponseEntity<List<Food>> deleteFood(@PathVariable Long id){
         Optional<Food> foundFood = foodService.getFoodById(id);
+
         if(foundFood.isPresent()){
             foodService.deleteFood(id);
             return new ResponseEntity<>(foodService.getAllFoods(),HttpStatus.OK);
@@ -60,7 +60,4 @@ public class FoodController {
         Food updatedFood = foodService.updateFood(foodDTO, id);
         return new ResponseEntity<>(updatedFood, HttpStatus.OK);
     }
-
-
-
 }

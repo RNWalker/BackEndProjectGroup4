@@ -5,17 +5,16 @@ import com.bnta.backend_project_group4.models.UserDTO;
 import com.bnta.backend_project_group4.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("users")
 public class UserController {
+
     @Autowired
     UserService userService;
 
@@ -29,6 +28,7 @@ public class UserController {
     @GetMapping(value= "/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id){
         Optional<User> foundUser = userService.getUserById(id);
+
         if(foundUser.isPresent()){
             return new ResponseEntity<>(foundUser.get(), HttpStatus.OK);
         }
@@ -46,6 +46,7 @@ public class UserController {
     @DeleteMapping(value="/{id}")
     public ResponseEntity<List<User>> deleteUser(@PathVariable Long id){
         Optional<User> foundUser = userService.getUserById(id);
+
         if(foundUser.isPresent()){
             userService.deleteUser(id);
             return new ResponseEntity<>(userService.getAllUsers(),HttpStatus.OK);

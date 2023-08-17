@@ -20,10 +20,13 @@ public class PetController {
     //INDEX
     @GetMapping
     public ResponseEntity<List<Pet>> getAllPetsByHappinessAndEnergyLevel(@RequestParam( required=false, name = "happinessLevel")
-                                                                             Integer happinessLevel, @RequestParam (required=false, name = "energyLevel")
-             Integer energyLevel){
+                                                                             Integer happinessLevel,
+                                                                         @RequestParam (required=false, name = "energyLevel")
+    Integer energyLevel){
         if(happinessLevel!=null || energyLevel!=null){
-            return new ResponseEntity<>(petService.findAllPetsWithHappinessLevelLessThanOrEnergyLevelLessThan(happinessLevel, energyLevel),HttpStatus.OK);
+            return new ResponseEntity<>
+                    (petService.findAllPetsWithHappinessLevelLessThanOrEnergyLevelLessThan(happinessLevel, energyLevel),
+                            HttpStatus.OK);
         }
         return new ResponseEntity<>(petService.getAllPets(), HttpStatus.OK);
     }
@@ -32,6 +35,7 @@ public class PetController {
     @GetMapping(value= "/{id}")
     public ResponseEntity<Pet> getPetById(@PathVariable Long id){
         Optional<Pet> foundPet = petService.getPetById(id);
+
         if(foundPet.isPresent()){
             return new ResponseEntity<>(foundPet.get(), HttpStatus.OK);
         }
@@ -50,6 +54,7 @@ public class PetController {
     @DeleteMapping(value="/{id}")
     public ResponseEntity<List<Pet>> deletePet(@PathVariable Long id){
         Optional<Pet> foundPet = petService.getPetById(id);
+
         if(foundPet.isPresent()){
             petService.deletePet(id);
             return new ResponseEntity<>(petService.getAllPets(),HttpStatus.OK);

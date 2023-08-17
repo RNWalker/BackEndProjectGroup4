@@ -30,6 +30,7 @@ public class ToyController {
     @GetMapping(value= "/{id}")
     public ResponseEntity<Toy> getToyById(@PathVariable Long id){
         Optional<Toy> foundToy = toyService.getToyById(id);
+
         if(foundToy.isPresent()){
             return new ResponseEntity<>(foundToy.get(), HttpStatus.OK);
         }
@@ -48,6 +49,7 @@ public class ToyController {
     @DeleteMapping(value="/{id}")
     public ResponseEntity<List<Toy>> deleteToy(@PathVariable Long id){
         Optional<Toy> foundToy = toyService.getToyById(id);
+
         if(foundToy.isPresent()){
             toyService.deleteToy(id);
             return new ResponseEntity<>(toyService.getAllToys(),HttpStatus.OK);

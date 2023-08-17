@@ -30,7 +30,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception{
+
         // users
+
         User user1 = new User("MotherOfDragons","james@MotherOfDragons");
         userRepository.save(user1);
 
@@ -149,5 +151,4 @@ public class DataLoader implements ApplicationRunner {
         petRepository.save(pet7);
         petRepository.save(pet8);
     }
-
 }
