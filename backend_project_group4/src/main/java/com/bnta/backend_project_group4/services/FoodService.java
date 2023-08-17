@@ -31,11 +31,6 @@ public class FoodService {
 
     public Food saveFood(FoodDTO foodDTO){
         Food food = new Food(foodDTO.getName(), foodDTO.getNutritionValue());
-
-        for (Long petId: foodDTO.getPetIds()){
-            Pet pet = petRepository.findById(petId).get();
-            food.addPet(pet);
-        }
         foodRepository.save(food);
         return food;
     }
@@ -49,12 +44,6 @@ public class FoodService {
         Food foodToUpdate = foodRepository.findById(id).get();
         foodToUpdate.setName(foodDTO.getName());
         foodToUpdate.setNutritionValue(foodDTO.getNutritionValue());
-        foodToUpdate.setPets(new ArrayList<Pet>());
-
-        for (Long petId: foodDTO.getPetIds()){
-            Pet pet = petRepository.findById(petId).get();
-            foodToUpdate.addPet(pet);
-        }
         foodRepository.save(foodToUpdate);
         return foodToUpdate;
     }
