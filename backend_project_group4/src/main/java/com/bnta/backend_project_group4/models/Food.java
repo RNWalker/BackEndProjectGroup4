@@ -22,7 +22,7 @@ public class Food {
     private int nutritionValue;
 
     @Column
-    @ManyToMany(mappedBy = "foods")
+    @ManyToMany(mappedBy = "foods", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties({"foods", "toys", "user"})
     private List<Pet> pets;
 

@@ -40,7 +40,7 @@ public class Pet {
     )
     private List<Toy> toys;
 
-    @ManyToMany
+    @ManyToMany()
     @JsonIgnoreProperties({"pets"})
     @JoinTable(
             name = "pets_foods",

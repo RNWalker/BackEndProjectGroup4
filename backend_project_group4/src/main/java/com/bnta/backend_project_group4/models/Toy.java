@@ -22,7 +22,7 @@ public class Toy {
     private int happinessValue;
 
     @Column
-    @ManyToMany(mappedBy = "toys")
+    @ManyToMany(mappedBy = "toys", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties({"toys", "user","foods"})
     private List<Pet> pets;
 
