@@ -43,5 +43,17 @@ public class FoodController {
         return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.CREATED);
     }
 
+    //DELETE
+    @DeleteMapping(value="/{id}")
+    public ResponseEntity<List<Food>> deleteFood(@PathVariable Long id){
+        Optional<Food> foundFood = foodService.getFoodById(id);
+        if(foundFood.isPresent()){
+            foodService.deleteFood(id);
+            return new ResponseEntity<>(foodService.getAllFoods(),HttpStatus.OK);
+        }
+        return new ResponseEntity<>(foodService.getAllFoods(),HttpStatus.NOT_FOUND);
+    }
+
+    
 
 }
