@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User {
+
     @Column
     private String name;
 

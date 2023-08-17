@@ -18,8 +18,6 @@ public class PetDTO {
         this.happinessLevel = 50;
         this.energyLevel = 50;
         this.userId = userId;
-        this.toyIds = toyIds;
-        this.foodIds = foodIds;
     }
 
     // default constructor

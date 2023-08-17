@@ -11,11 +11,9 @@ public class UserDTO {
     public UserDTO(String name, String email) {
         this.name = name;
         this.email = email;
-        this.petIds = petIds;
     }
 
     // default constructor
-
     public UserDTO() {
     }
 

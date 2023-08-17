@@ -11,7 +11,6 @@ public class ToyDTO {
     public ToyDTO(String name, int happinessValue) {
         this.name = name;
         this.happinessValue = happinessValue;
-        this.petIds = petIds;
     }
 
     // default constructor
