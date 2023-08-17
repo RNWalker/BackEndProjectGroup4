@@ -23,7 +23,7 @@ public class Toy {
 
     @Column
     @ManyToMany(mappedBy = "toys")
-    @JsonIgnoreProperties({"toys"})
+    @JsonIgnoreProperties({"toys", "user","foods"})
     private List<Pet> pets;
 
     public Toy(String name, int happinessValue) {
