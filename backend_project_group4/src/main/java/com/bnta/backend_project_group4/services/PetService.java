@@ -36,7 +36,6 @@ public class PetService {
         return petRepository.findById(id);
     }
 
-    // check later re passing in toys/food
     public Pet savePet(PetDTO petDTO){
         Pet pet = new Pet(petDTO.getName(), petDTO.getSpecies(), userRepository.findById(petDTO.getUserId()).get());
         petRepository.save(pet);
@@ -76,19 +75,12 @@ public class PetService {
     }
 
     public void playWithPet(Long toyId, Long petId){
-        //created petBeingPlayedWith and findPetById
-        //if statement checking if toy is present in list of toys
-        //happinessLevel of the pet will increase by the happinessValue of the toy
-        //save pet
-        // delete toy
-
         Pet petBeingPlayedWith = petRepository.findById(petId).get();
             Toy toy = toyRepository.findById(toyId).get();
 
             petBeingPlayedWith.setHappinessLevel(petBeingPlayedWith.getHappinessLevel() + toy.getHappinessValue());
             petBeingPlayedWith.removeToy(toy);
             petRepository.save(petBeingPlayedWith);
-//        } //else throws exception
     }
 
     public void feedPet(Long foodId, Long petId){
@@ -116,7 +108,4 @@ public class PetService {
     public List<Pet> findAllPetsWithHappinessLevelLessThanOrEnergyLevelLessThan(int happinessLevel, int energyLevel){
         return petRepository.findByHappinessLevelLessThanOrEnergyLevelLessThan(happinessLevel, energyLevel);
     }
-//    public List<Pet> findAllPetsWithEnergyLevelLessThan(int energyLevel){
-//        return petRepository.findByEnergyLevelLessThan(energyLevel);
-//    }
 }
