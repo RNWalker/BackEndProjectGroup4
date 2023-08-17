@@ -66,5 +66,9 @@ public class PetController {
         return new ResponseEntity(getPetById(id), HttpStatus.OK);
     }
 
-
+    @PatchMapping(value = "/{id}/play")
+    public ResponseEntity<Pet> playWithPet(@RequestParam Long toyId, @PathVariable Long id){
+        petService.playWithPet(toyId, id);
+        return new ResponseEntity(getPetById(id), HttpStatus.OK);
+    }
 }

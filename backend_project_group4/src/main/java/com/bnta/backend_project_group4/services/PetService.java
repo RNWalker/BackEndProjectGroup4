@@ -83,12 +83,12 @@ public class PetService {
         // delete toy
 
         Pet petBeingPlayedWith = petRepository.findById(petId).get();
-        if (petBeingPlayedWith.getToys().contains(toyRepository.findById(toyId))){
+//        if (petBeingPlayedWith.getToys().contains(toyRepository.findById(toyId))){
             Toy toy = toyRepository.findById(toyId).get();
             petBeingPlayedWith.setHappinessLevel(petBeingPlayedWith.getHappinessLevel() + toy.getHappinessValue());
+            petBeingPlayedWith.removeToy(toy);
             petRepository.save(petBeingPlayedWith);
-            petBeingPlayedWith.getToys().remove(toyRepository.findById(toyId));
-        } //else throws exception
+//        } //else throws exception
     }
 
     public void feedPet(Long foodId, Long petId){
