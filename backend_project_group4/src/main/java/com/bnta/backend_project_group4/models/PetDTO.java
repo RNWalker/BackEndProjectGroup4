@@ -12,7 +12,7 @@ public class PetDTO {
     private List<Long> toyIds;
     private List<Long> foodIds;
 
-    public PetDTO(String name, Species species,  Long userId, List<Long> toyIds, List<Long> foodIds) {
+    public PetDTO(String name, Species species,  Long userId) {
         this.name = name;
         this.species = species;
         this.happinessLevel = 50;
