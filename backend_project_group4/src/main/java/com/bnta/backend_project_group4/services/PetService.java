@@ -109,10 +109,10 @@ public class PetService {
         }
     }
 
-    public List<Pet> findAllPetsWithHappinessLevelLessThan(int happinessLevel){
-        return petRepository.findByHappinessLevelLessThan(happinessLevel);
+    public List<Pet> findAllPetsWithHappinessLevelLessThan(int level){
+        return petRepository.findByHappinessLevelLessThan(level);
     }
-    public List<Pet> findAllPetsWithEnergyLevelLessThan(int energyLevel){
-        return petRepository.findByEnergyLevelLessThan(energyLevel);
-    }
+//    public List<Pet> findAllPetsWithEnergyLevelLessThan(int energyLevel){
+//        return petRepository.findByEnergyLevelLessThan(energyLevel);
+//    }
 }
