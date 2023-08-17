@@ -54,6 +54,13 @@ public class FoodController {
         return new ResponseEntity<>(foodService.getAllFoods(),HttpStatus.NOT_FOUND);
     }
 
-    
+    // UPDATE
+    @PatchMapping(value ="/{id}")
+    public ResponseEntity<Food> updateFood(@RequestBody FoodDTO foodDTO, @PathVariable Long id){
+        Food updatedFood = foodService.updateFood(foodDTO, id);
+        return new ResponseEntity<>(updatedFood, HttpStatus.OK);
+    }
+
+
 
 }
