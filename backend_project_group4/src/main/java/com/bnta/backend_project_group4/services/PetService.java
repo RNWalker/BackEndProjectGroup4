@@ -100,12 +100,13 @@ public class PetService {
 //        }//else throws exception
     }
 
-    //@Scheduled(fixedRate = 10000) note: 10000 = 10 seconds
-    //public void autoDecreaseEnergyLevel(Long petId){
-    //Pet petDecreasingEnergy= petRepository.findById(petId).get();
-    //petDecreasingEnergy.setEnergyLevel(petBeingFed.getEnergyLevel()-2);
-    //petDecreasingEnergy.setHappinessLevel(petBeingFed.getHappinessLevel()-2);
-    // petRepository.save(petDecreasingEnergy);
-    //}
-
+    @Scheduled(fixedRate = 5000) //note: 10000 = 10 seconds
+    public void autoDecrease() {
+//    Pet petDecreasingEnergy= petRepository.findAllById(petId).get();
+        for (Pet petDecreasing : petRepository.findAll()) {
+            petDecreasing.setEnergyLevel(petDecreasing.getEnergyLevel() - 2);
+            petDecreasing.setHappinessLevel(petDecreasing.getHappinessLevel() - 2);
+            petRepository.save(petDecreasing);
+        }
+    }
 }
