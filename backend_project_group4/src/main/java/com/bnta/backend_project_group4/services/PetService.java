@@ -103,16 +103,12 @@ public class PetService {
     @Scheduled(fixedRate = 1000) //note: 15000 = 15 seconds
     public void autoDecrease() {
         for (Pet petDecreasing : petRepository.findAll()) {
-            if(petDecreasing.getHappinessLevel() <= 0 || petDecreasing.getEnergyLevel() <= 0){
-
-                petRepository.deleteById(petDecreasing.getId());
-
-            }
-            petRepository.save(petDecreasing);
             petDecreasing.setEnergyLevel(petDecreasing.getEnergyLevel() - 2);
             petDecreasing.setHappinessLevel(petDecreasing.getHappinessLevel() - 2);
-//            petRepository.save(petDecreasing);
-
+            if(petDecreasing.getHappinessLevel() <= 0 || petDecreasing.getEnergyLevel() <= 0){
+                petRepository.deleteById(petDecreasing.getId());
+                continue;
+            }
             petRepository.save(petDecreasing);
         }
     }
