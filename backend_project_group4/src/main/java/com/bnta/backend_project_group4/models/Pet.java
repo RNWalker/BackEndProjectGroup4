@@ -115,7 +115,7 @@ public class Pet {
         return toys;
     }
 
-    public void setToys(ArrayList<Toy> toys) {
+    public void setToys(List<Toy> toys) {
         this.toys = toys;
     }
 
@@ -123,7 +123,7 @@ public class Pet {
         return foods;
     }
 
-    public void setFoods(ArrayList<Food> foods) {
+    public void setFoods(List<Food> foods) {
         this.foods = foods;
     }
 

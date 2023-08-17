@@ -93,12 +93,11 @@ public class PetService {
 
     public void feedPet(Long foodId, Long petId){
         Pet petBeingFed = petRepository.findById(petId).get();
-        if(petBeingFed.getFoods().contains(foodRepository.findById(foodId))){
             Food food= foodRepository.findById(foodId).get();
             petBeingFed.setEnergyLevel(petBeingFed.getEnergyLevel()+food.getNutritionValue());
+            petBeingFed.removeFood(food);
             petRepository.save(petBeingFed);
-            petBeingFed.getFoods().remove(foodRepository.findById(foodId));
-        }//else throws exception
+//        }//else throws exception
     }
 
     //@Scheduled(fixedRate = 10000) note: 10000 = 10 seconds
