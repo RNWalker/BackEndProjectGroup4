@@ -4,6 +4,11 @@ import com.bnta.backend_project_group4.models.Pet;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface PetRepository extends JpaRepository<Pet,Long> {
+
+    List<Pet> findByHappinessLevelLessThan(int happinessLevel);
+    List<Pet> findByEnergyLevelLessThan(int energyLevel);
 }

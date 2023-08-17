@@ -108,4 +108,11 @@ public class PetService {
             petRepository.save(petDecreasing);
         }
     }
+
+    public List<Pet> findAllPetsWithHappinessLevelLessThan(int happinessLevel){
+        return petRepository.findByHappinessLevelLessThan(happinessLevel);
+    }
+    public List<Pet> findAllPetsWithEnergyLevelLessThan(int energyLevel){
+        return petRepository.findByEnergyLevelLessThan(energyLevel);
+    }
 }

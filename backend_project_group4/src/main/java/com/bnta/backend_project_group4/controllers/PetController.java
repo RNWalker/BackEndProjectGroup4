@@ -19,7 +19,10 @@ public class PetController {
 
     //INDEX
     @GetMapping
-    public ResponseEntity<List<Pet>> getAllPets(){
+    public ResponseEntity<List<Pet>> getAllPets(@RequestParam( required=false, name = "happinessLevel") Integer happinessLevel ){
+        if(happinessLevel!=null){
+            return new ResponseEntity<>(petService.findAllPetsWithHappinessLevelLessThan(happinessLevel),HttpStatus.OK);
+        }
         return new ResponseEntity<>(petService.getAllPets(), HttpStatus.OK);
     }
 
