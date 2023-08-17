@@ -59,7 +59,11 @@ public class PetController {
         return new ResponseEntity<>(updatedPet, HttpStatus.OK);
     }
 
-
+    @PatchMapping(value = "/{id}/feed")
+    public ResponseEntity<Pet> feedPet(@RequestBody FoodDTO foodDTO, @PathVariable Long id){
+        petService.feedPet(foodDTO.getPetIds().get(0), id);
+        return new ResponseEntity(getPetById(id), HttpStatus.OK);
+    }
 
 
 }

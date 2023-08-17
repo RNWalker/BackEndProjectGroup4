@@ -32,15 +32,9 @@ public class ToyService {
 
     public Toy saveToy(ToyDTO toyDTO){
         Toy toy = new Toy(toyDTO.getName(),toyDTO.getHappinessValue());
-
-//        for (Long petId : toyDTO.getPetIds() ) {
-//            Pet pet = petRepository.findById(petId).get();
-//            toy.addPet(pet);
-//        }
         return toyRepository.save(toy);
     }
 
-    // May need to amend later to also delete pet
     public void deleteToy(Long id){
         Toy toyToDelete = toyRepository.findById(id).get();
         for(Pet pet : toyToDelete.getPets()){
@@ -55,12 +49,7 @@ public class ToyService {
 
         toyToUpdate.setName(toyDTO.getName());
         toyToUpdate.setHappinessValue(toyDTO.getHappinessValue());
-//        toyToUpdate.setPets(new ArrayList<Pet>());
 
-//        for (Long petId: toyDTO.getPetIds()){
-//            Pet pet = petRepository.findById(petId).get();
-//            toyToUpdate.addPet(pet);
-//        }
         toyRepository.save(toyToUpdate);
         return toyToUpdate;
     }

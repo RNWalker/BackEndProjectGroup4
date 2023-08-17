@@ -34,19 +34,11 @@ public class UserService {
     }
 
     public void deleteUser(Long id){
-        // ? delete food from pet, toy from pet. then pet from user
         Optional<User> deletedUser = userRepository.findById(id);
         if(deletedUser.isPresent()){
             User user = deletedUser.get();
-            Iterator<Pet> petIterator = user.getPets().iterator();
-            while (petIterator.hasNext()){
-                Pet pet = petIterator.next();
-                petIterator.remove();
-            }
-
             userRepository.delete(user);
         }
-
     }
 
     public User updateUser(UserDTO userDTO, Long id){
