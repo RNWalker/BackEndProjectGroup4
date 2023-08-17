@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface PetRepository extends JpaRepository<Pet,Long> {
 
-    List<Pet> findByHappinessLevelLessThan(int level);
+    List<Pet> findByHappinessLevelLessThanOrEnergyLevelLessThan(int happinessLevel, int energyLevel);
 //    List<Pet> findByEnergyLevelLessThan(int energyLevel);
 }
