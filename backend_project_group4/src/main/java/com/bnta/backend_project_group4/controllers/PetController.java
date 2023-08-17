@@ -22,7 +22,7 @@ public class PetController {
     public ResponseEntity<List<Pet>> getAllPetsByHappinessAndEnergyLevel(@RequestParam( required=false, name = "happinessLevel")
                                                                              Integer happinessLevel, @RequestParam (required=false, name = "energyLevel")
              Integer energyLevel){
-        if(happinessLevel!=null && energyLevel!=null){
+        if(happinessLevel!=null || energyLevel!=null){
             return new ResponseEntity<>(petService.findAllPetsWithHappinessLevelLessThanOrEnergyLevelLessThan(happinessLevel, energyLevel),HttpStatus.OK);
         }
         return new ResponseEntity<>(petService.getAllPets(), HttpStatus.OK);
