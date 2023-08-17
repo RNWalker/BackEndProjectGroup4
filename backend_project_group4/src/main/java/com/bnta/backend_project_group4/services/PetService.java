@@ -97,7 +97,6 @@ public class PetService {
             petBeingFed.setEnergyLevel(petBeingFed.getEnergyLevel()+food.getNutritionValue());
             petBeingFed.removeFood(food);
             petRepository.save(petBeingFed);
-//        }//else throws exception
     }
 
     @Scheduled(fixedRate = 5000) //note: 10000 = 10 seconds
