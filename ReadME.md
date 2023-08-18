@@ -35,11 +35,12 @@ Toys have an id, a name, happinessValue and a list of pets. The happinessValue d
 The DTOs are very similar to the POJOs above but they enable data transfer with HTTP requests. Their main difference to the POJOs are that they do not take in the primary keys (IDs) and instead of a list, they take in ids associated with the list i.e. pet IDs instead of list of pets.
  
 ### Class Diagram
-<img src="./Backend_Project_Group4_FinalUML.png" alt="class diagram" width="80%"/> 
+
 
 
 ### Entity Relationship Diagram
-<img src="./FinalERD.png" alt="entity relationship diagram" width="80%"/>
+![FinalERD](https://github.com/RNWalker/BackEndProjectGroup4/assets/78052216/04b5ea68-b412-44f4-a916-5c7d0a822108)
+
 
 -------------
 
