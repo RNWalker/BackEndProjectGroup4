@@ -53,7 +53,7 @@ public class PetService {
         petToUpdate.setSpecies(petDTO.getSpecies());
         petToUpdate.setHappinessLevel(petDTO.getHappinessLevel());
         petToUpdate.setEnergyLevel(petDTO.getEnergyLevel());
-        petToUpdate.setId(petDTO.getUserId());
+        petToUpdate.setUser(userRepository.findById(petDTO.getUserId()).get());
         petToUpdate.setFoods(new ArrayList<>());
 
         for (Long id: petDTO.getFoodIds()){

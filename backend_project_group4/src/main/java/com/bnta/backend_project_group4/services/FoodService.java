@@ -30,7 +30,7 @@ public class FoodService {
 
     public Food saveFood(FoodDTO foodDTO){
         Food food = new Food(foodDTO.getName(), foodDTO.getNutritionValue());
-        
+
         foodRepository.save(food);
         return food;
     }
